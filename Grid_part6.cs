@@ -83,9 +83,9 @@ public class Grid : MonoBehaviour
         for(int i = 0; i < rivers; i++) {
             GraphNode start = gg.nodes[Random.Range(16, size - 16)];
             GraphNode end = gg.nodes[Random.Range(size * (size - 1) + 16, size * size - 16)];
-            ABPath path = ABPath.Construct((Vector3)start.position, (Vector3)end.position, (Path path) => {
-                for(int j = 0; j < path.path.Count; j++) {
-                    GraphNode node = path.path[j];
+            ABPath path = ABPath.Construct((Vector3)start.position, (Vector3)end.position, (Path result) => {
+                for(int j = 0; j < result.path.Count; j++) {
+                    GraphNode node = result.path[j];
                     int x = Mathf.RoundToInt(((Vector3)node.position).x);
                     int y = Mathf.RoundToInt(((Vector3)node.position).z);
                     grid[x, y].isWater = true;
